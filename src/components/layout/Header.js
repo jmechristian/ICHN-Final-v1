@@ -27,7 +27,7 @@ function Header() {
 
       <ul className="sidenav" id="mobile-demo">
         <li>
-          <a href="/">Register</a>
+          <a href="/register">Register</a>
         </li>
         <li>
           <a href="/">Login</a>

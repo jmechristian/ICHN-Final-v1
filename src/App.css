@@ -6,6 +6,20 @@
   width: 100%;
 }
 
+.buttons .btn-back {
+  margin-top: 5%;
+}
+
 .section-login {
   margin-top: 4%;
+}
+
+label {
+  font-size: 1.25rem;
+}
+
+/* HELPERS 2,5,10 */
+
+.mt-3 {
+  margin-top: 10%;
 }

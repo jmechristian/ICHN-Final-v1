@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export class Landing extends Component {
   state = {
@@ -58,16 +59,16 @@ export class Landing extends Component {
           </div>
           <div className="row">
             <div className="col s12 buttons">
-              <a href="/register" className="btn blue">
+              <Link to="/register" className="btn blue">
                 Register
-              </a>
+              </Link>
             </div>
           </div>
           <div className="row">
             <div className="col s12 buttons">
-              <a href="/forgot" className="btn blue">
+              <Link to="/forgot" className="btn blue">
                 Forgot Password
-              </a>
+              </Link>
             </div>
           </div>
         </div>
