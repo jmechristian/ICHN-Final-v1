@@ -66,7 +66,7 @@ export class Landing extends Component {
           </div>
           <div className="row">
             <div className="col s12 buttons">
-              <Link to="/forgot" className="btn blue">
+              <Link to="/forgotPassword" className="btn blue">
                 Forgot Password
               </Link>
             </div>

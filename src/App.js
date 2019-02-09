@@ -10,6 +10,7 @@ import User_Info from './components/registration/User_Info';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Landing from './components/layout/Landing';
+import Forgot_Password from './components/registration/Forgot_Password';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
             <Route exact path="/register" component={User_Info} />
             <Route exact path="/setPassword" component={Set_Password} />
             <Route exact path="/orgFollow" component={Org_Follow} />
+            <Route exact path="/forgotPassword" component={Forgot_Password} />
           </div>
           <Footer />
         </div>
