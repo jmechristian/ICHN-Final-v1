@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import { registerUser } from '../../actions/authActions';
 
 export class User_Info extends Component {
   state = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    zipcode: ''
+    FirstName: '',
+    LastName: '',
+    Email: '',
+    Password: '',
+    Password2: ''
   };
 
   onChange = e => {
@@ -15,7 +19,22 @@ export class User_Info extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    this.props.history.push('/setPassword');
+    const newUser = {
+      FirstName: this.state.FirstName,
+      LastName: this.state.LastName,
+      Email: this.state.Email,
+      Password: this.state.Password,
+      Password2: this.state.Password2
+    };
+
+    //this.props.registerUser(newUser);
+    axios
+      .post('https://ichnserver.gear.host/User/Register', newUser)
+      .then(res => {
+        console.log(res.data);
+        this.props.history.push('/');
+      })
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -30,37 +49,46 @@ export class User_Info extends Component {
           <form onSubmit={this.onSubmit}>
             <div className="col s12 m6 input-field">
               <input
-                name="firstName"
+                name="FirstName"
                 type="text"
                 placeholder="First Name"
-                value={this.state.firstName}
+                value={this.state.FirstName}
                 onChange={this.onChange}
               />
             </div>
             <div className="col s12 m6 input-field">
               <input
-                name="lastName"
+                name="LastName"
                 type="text"
                 placeholder="Last Name"
-                value={this.state.lastName}
+                value={this.state.LastName}
                 onChange={this.onChange}
               />
             </div>
             <div className="col s12 m6 input-field">
               <input
-                name="email"
+                name="Email"
                 type="email"
                 placeholder="Email"
-                value={this.state.email}
+                value={this.state.Email}
                 onChange={this.onChange}
               />
             </div>
             <div className="col s12 m6 input-field">
               <input
-                name="zipcode"
-                type="number"
-                placeholder="Zipcode"
-                value={this.state.zipcode}
+                name="Password"
+                type="password"
+                placeholder="Password"
+                value={this.state.Password}
+                onChange={this.onChange}
+              />
+            </div>
+            <div className="col s12 m6 input-field">
+              <input
+                name="Password2"
+                type="password"
+                placeholder="Confirm Password"
+                value={this.state.Password2}
                 onChange={this.onChange}
               />
             </div>
@@ -70,7 +98,7 @@ export class User_Info extends Component {
                 type="submit"
                 name="action"
               >
-                Set Password >
+                Register
               </button>
             </div>
           </form>
@@ -80,4 +108,11 @@ export class User_Info extends Component {
   }
 }
 
-export default User_Info;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(User_Info);

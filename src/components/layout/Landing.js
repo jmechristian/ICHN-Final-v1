@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import axios from 'axios';
+
+import { loginUser } from '../../actions/authActions';
 
 export class Landing extends Component {
   state = {
-    email: '',
-    password: ''
+    Email: '',
+    Password: '',
+    isAuth: false
   };
 
   onChange = e => {
@@ -15,11 +20,18 @@ export class Landing extends Component {
     e.preventDefault();
 
     const user = {
-      email: this.state.email,
-      password: this.state.password
+      Email: this.state.Email,
+      Password: this.state.Password
     };
 
-    console.log(user);
+    //this.props.loginUser(user);
+    axios
+      .post('https://ichnserver.gear.host/User/Login', user)
+      .then(res => {
+        console.log(res);
+        this.props.history.push('/orgFollow');
+      })
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -30,19 +42,19 @@ export class Landing extends Component {
             <form onSubmit={this.onSubmit}>
               <div className="col s12 m6 input-field">
                 <input
-                  name="email"
+                  name="Email"
                   type="text"
                   placeholder="Email"
-                  value={this.state.email}
+                  value={this.state.Email}
                   onChange={this.onChange}
                 />
               </div>
               <div className="col s12 m6 input-field">
                 <input
-                  name="password"
+                  name="Password"
                   type="password"
                   placeholder="Password"
-                  value={this.state.password}
+                  value={this.state.Password}
                   onChange={this.onChange}
                 />
               </div>
@@ -77,4 +89,11 @@ export class Landing extends Component {
   }
 }
 
-export default Landing;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(Landing);
