@@ -9,7 +9,8 @@ export class User_Info extends Component {
     LastName: '',
     Email: '',
     Password: '',
-    Password2: ''
+    Password2: '',
+    errors: {}
   };
 
   onChange = e => {
@@ -34,7 +35,7 @@ export class User_Info extends Component {
         console.log(res.data);
         this.props.history.push('/');
       })
-      .catch(err => console.log(err));
+      .catch(err => this.setState({ errors: err.response.data }));
   };
 
   render() {
@@ -52,45 +53,74 @@ export class User_Info extends Component {
                 name="FirstName"
                 type="text"
                 placeholder="First Name"
+                className="validate"
                 value={this.state.FirstName}
                 onChange={this.onChange}
               />
+              <span class="helper-text" data-error="required" data-success=" ">
+                Required
+              </span>
             </div>
+
             <div className="col s12 m6 input-field">
               <input
                 name="LastName"
                 type="text"
                 placeholder="Last Name"
+                className="validate"
                 value={this.state.LastName}
                 onChange={this.onChange}
               />
+              <span
+                className="helper-text"
+                data-error="required"
+                data-success=" "
+              >
+                Required
+              </span>
             </div>
             <div className="col s12 m6 input-field">
               <input
                 name="Email"
                 type="email"
                 placeholder="Email"
+                className="validate"
                 value={this.state.Email}
                 onChange={this.onChange}
               />
+              <span
+                clclassNameass="helper-text"
+                data-error="please enter a valid email"
+                data-success=" "
+              >
+                Required
+              </span>
             </div>
             <div className="col s12 m6 input-field">
               <input
                 name="Password"
                 type="password"
                 placeholder="Password"
+                className="validate"
                 value={this.state.Password}
                 onChange={this.onChange}
               />
+              <span class="helper-text" data-error="required" data-success=" ">
+                Required
+              </span>
             </div>
             <div className="col s12 m6 input-field">
               <input
                 name="Password2"
                 type="password"
                 placeholder="Confirm Password"
+                className="validate"
                 value={this.state.Password2}
                 onChange={this.onChange}
               />
+              <span class="helper-text" data-error="required" data-success=" ">
+                Required
+              </span>
             </div>
             <div className="col s12 form-submit">
               <button

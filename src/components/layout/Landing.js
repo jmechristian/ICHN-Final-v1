@@ -43,10 +43,16 @@ export class Landing extends Component {
               <div className="col s12 m6 input-field">
                 <input
                   name="Email"
-                  type="text"
+                  type="email"
                   placeholder="Email"
+                  className="validate"
                   value={this.state.Email}
                   onChange={this.onChange}
+                />
+                <span
+                  className="helper-text"
+                  data-error="Please Enter a Valid Email"
+                  data-success=" "
                 />
               </div>
               <div className="col s12 m6 input-field">
@@ -54,8 +60,14 @@ export class Landing extends Component {
                   name="Password"
                   type="password"
                   placeholder="Password"
+                  className="validate"
                   value={this.state.Password}
                   onChange={this.onChange}
+                />
+                <span
+                  className="helper-text"
+                  data-error="Please Enter Your Password"
+                  data-success=" "
                 />
               </div>
               <div className="col s12 form-submit">

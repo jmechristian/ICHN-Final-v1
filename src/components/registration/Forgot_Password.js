@@ -29,9 +29,17 @@ export class Forgot_Password extends Component {
                 name="newPassword"
                 type="email"
                 placeholder="Please Enter the Email You Signed Up With"
+                className="validate"
                 value={this.state.newPassword}
                 onChange={this.onChange}
               />
+              <span
+                class="helper-text"
+                data-error="Please Enter a Valid Email"
+                data-success=" "
+              >
+                Required
+              </span>
             </div>
           </form>
           <div className="col s12 buttons ">
