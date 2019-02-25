@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import axios from 'axios';
 
 import { loginUser } from '../../actions/authActions';
-import setAuthToken from '../../utils/setAuthToken';
 
 export class Landing extends Component {
   state = {
     Email: '',
-    Password: '',
-    isAuth: false,
-    error: ''
+    Password: ''
   };
 
   onChange = e => {
@@ -26,20 +22,7 @@ export class Landing extends Component {
       Password: this.state.Password
     };
 
-    //this.props.loginUser(user);
-    axios
-      .post('https://ichnserver.gear.host/User/Login', user)
-      .then(res => {
-        console.log(res);
-        // Save to localStorage
-        const token = res.data.Token;
-        // Set token to ls
-        localStorage.setItem('jwtToken', token);
-        // Set token to Auth header
-        setAuthToken(token);
-        this.props.history.push('/orgFollow');
-      })
-      .catch(err => this.setState({ error: err.response.data.Description }));
+    this.props.loginUser(user);
   };
 
   render() {
@@ -80,7 +63,7 @@ export class Landing extends Component {
               </div>
               <div className="row">
                 <div className="col s12">
-                  <p>{this.state.error}</p>
+                  <p>{this.props.error}</p>
                 </div>
               </div>
 
@@ -116,7 +99,8 @@ export class Landing extends Component {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  error: state.error
 });
 
 export default connect(
