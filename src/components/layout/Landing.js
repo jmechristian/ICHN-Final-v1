@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import { loginUser } from '../../actions/authActions';
+import setAuthToken from '../../utils/setAuthToken';
 
 export class Landing extends Component {
   state = {
@@ -30,6 +31,12 @@ export class Landing extends Component {
       .post('https://ichnserver.gear.host/User/Login', user)
       .then(res => {
         console.log(res);
+        // Save to localStorage
+        const token = res.data.Token;
+        // Set token to ls
+        localStorage.setItem('jwtToken', token);
+        // Set token to Auth header
+        setAuthToken(token);
         this.props.history.push('/orgFollow');
       })
       .catch(err => this.setState({ error: err.response.data.Description }));
