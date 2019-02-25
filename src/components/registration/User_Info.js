@@ -57,7 +57,11 @@ export class User_Info extends Component {
                 value={this.state.FirstName}
                 onChange={this.onChange}
               />
-              <span class="helper-text" data-error="required" data-success=" ">
+              <span
+                className="helper-text"
+                data-error="required"
+                data-success=" "
+              >
                 Required
               </span>
             </div>
@@ -89,7 +93,7 @@ export class User_Info extends Component {
                 onChange={this.onChange}
               />
               <span
-                clclassNameass="helper-text"
+                className="helper-text"
                 data-error="please enter a valid email"
                 data-success=" "
               >
@@ -105,7 +109,11 @@ export class User_Info extends Component {
                 value={this.state.Password}
                 onChange={this.onChange}
               />
-              <span class="helper-text" data-error="required" data-success=" ">
+              <span
+                className="helper-text"
+                data-error="required"
+                data-success=" "
+              >
                 Required
               </span>
             </div>
@@ -118,7 +126,11 @@ export class User_Info extends Component {
                 value={this.state.Password2}
                 onChange={this.onChange}
               />
-              <span class="helper-text" data-error="required" data-success=" ">
+              <span
+                className="helper-text"
+                data-error="required"
+                data-success=" "
+              >
                 Required
               </span>
             </div>

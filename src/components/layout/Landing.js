@@ -9,7 +9,8 @@ export class Landing extends Component {
   state = {
     Email: '',
     Password: '',
-    isAuth: false
+    isAuth: false,
+    error: ''
   };
 
   onChange = e => {
@@ -31,7 +32,7 @@ export class Landing extends Component {
         console.log(res);
         this.props.history.push('/orgFollow');
       })
-      .catch(err => console.log(err));
+      .catch(err => this.setState({ error: err.response.data.Description }));
   };
 
   render() {
@@ -70,6 +71,12 @@ export class Landing extends Component {
                   data-success=" "
                 />
               </div>
+              <div className="row">
+                <div className="col s12">
+                  <p>{this.state.error}</p>
+                </div>
+              </div>
+
               <div className="col s12 form-submit">
                 <button
                   className="btn waves-effect waves-light blue darken-3"
