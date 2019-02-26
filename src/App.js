@@ -13,6 +13,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Landing from './components/layout/Landing';
 import Forgot_Password from './components/registration/Forgot_Password';
+import Dashboard from './components/profile/Dashboard';
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
               <Route exact path="/setPassword" component={Set_Password} />
               <Route exact path="/orgFollow" component={Org_Follow} />
               <Route exact path="/forgotPassword" component={Forgot_Password} />
+              <Route exact path="/dashboard" component={Dashboard} />
             </div>
             <Footer />
           </div>
