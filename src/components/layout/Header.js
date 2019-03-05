@@ -1,43 +1,69 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../actions/authActions';
+import Aux from '../../utils/Hoc';
 
-function Header() {
-  return (
-    <div>
-      <nav className="blue darken-1">
-        <div className="nav-wrapper">
-          <a href="/" className="brand-logo">
-            iCanHelpNetwork
-          </a>
-          <a href="/" data-target="mobile-demo" className="sidenav-trigger">
-            <i className="material-icons">menu</i>
-          </a>
-          <ul className="right hide-on-med-and-down">
-            <li>
-              <a href="/">Register</a>
-            </li>
-            <li>
-              <a href="/">Login</a>
-            </li>
-            <li>
-              <a href="/">Admin</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+class Header extends Component {
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
 
-      <ul className="sidenav" id="mobile-demo">
+  render() {
+    const { isAuthenticated } = this.props.auth;
+
+    const authLinks = (
+      <li>
+        <a href="/" onClick={this.onLogoutClick}>
+          Logout
+        </a>
+      </li>
+    );
+
+    const guestLinks = (
+      <Aux>
         <li>
-          <a href="/register">Register</a>
+          <Link to="/">Register</Link>
         </li>
         <li>
-          <a href="/">Login</a>
+          <Link to="/">Login</Link>
         </li>
         <li>
-          <a href="/">Admin</a>
+          <Link to="/">Admin</Link>
         </li>
-      </ul>
-    </div>
-  );
+      </Aux>
+    );
+
+    return (
+      <div>
+        <nav className="blue darken-1">
+          <div className="nav-wrapper">
+            <Link to="/" className="brand-logo">
+              iCanHelpNetwork
+            </Link>
+            <Link to="/" data-target="mobile-demo" className="sidenav-trigger">
+              <i className="material-icons">menu</i>
+            </Link>
+            <ul className="right hide-on-med-and-down">
+              {isAuthenticated ? authLinks : guestLinks}
+            </ul>
+          </div>
+        </nav>
+
+        <ul className="sidenav" id="mobile-demo">
+          {isAuthenticated ? authLinks : guestLinks}
+        </ul>
+      </div>
+    );
+  }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Header);

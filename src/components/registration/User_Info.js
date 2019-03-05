@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { registerUser } from '../../actions/authActions';
 
 export class User_Info extends Component {
   state = {
@@ -37,6 +36,18 @@ export class User_Info extends Component {
       })
       .catch(err => this.setState({ errors: err.response.data }));
   };
+
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
 
   render() {
     return (
@@ -154,7 +165,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { registerUser }
-)(User_Info);
+export default connect(mapStateToProps)(User_Info);
