@@ -22,9 +22,11 @@ export class Org_Follow extends Component {
   // };
 
   render() {
+    const { orgs } = this.props.orgs;
+
     return (
       <div className="section section-password">
-        {this.props.orgs.orgs.map(org => (
+        {orgs.map(org => (
           <div className="row section" key={org.Id}>
             <div className="col s12">
               <div className="switch">
