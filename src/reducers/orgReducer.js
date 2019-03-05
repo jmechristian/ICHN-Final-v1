@@ -1,7 +1,7 @@
 import { GET_ORGS } from '../actions/types';
 
 const initialState = {
-  organizations: []
+  orgs: []
 };
 
 export default function(state = initialState, action) {
@@ -9,7 +9,7 @@ export default function(state = initialState, action) {
     case GET_ORGS:
       return {
         ...state,
-        organizations: action.payload
+        orgs: action.payload
       };
     default:
       return state;

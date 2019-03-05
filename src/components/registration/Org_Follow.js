@@ -1,45 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getOrgs } from '../../actions/orgActions';
 
 export class Org_Follow extends Component {
-  state = {
-    orgs: [
-      {
-        Id: 1,
-        Name: 'Public',
-        Code: 'PUB',
-        IsActive: true
-      },
-      {
-        Id: 2,
-        Name: 'System',
-        Code: 'SYS',
-        IsActive: true
-      },
-      {
-        Id: 3,
-        Name: 'Many Helping Hands',
-        Code: 'MHH',
-        IsActive: true
-      },
-      {
-        Id: 4,
-        Name: 'Irving Bible Church',
-        Code: 'IBC',
-        IsActive: true
-      },
-      {
-        Id: 99999,
-        Name: 'Permanent Test Organization',
-        Code: 'TEST',
-        IsActive: true
-      }
-    ]
-  };
+  // state = {
+  //   orgs: []
+  // };
 
-  // componentDidMount() {
-  //   this.getOrgs();
-  // }
+  componentDidMount() {
+    this.props.getOrgs();
+  }
 
   // getOrgs = async () => {
   //   const response = await fetch(
@@ -53,7 +24,7 @@ export class Org_Follow extends Component {
   render() {
     return (
       <div className="section section-password">
-        {this.state.orgs.map(org => (
+        {this.props.orgs.orgs.map(org => (
           <div className="row section" key={org.Id}>
             <div className="col s12">
               <div className="switch">
@@ -88,4 +59,12 @@ export class Org_Follow extends Component {
   }
 }
 
-export default Org_Follow;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  orgs: state.organization
+});
+
+export default connect(
+  mapStateToProps,
+  { getOrgs }
+)(Org_Follow);
