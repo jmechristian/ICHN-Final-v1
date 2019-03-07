@@ -38,21 +38,12 @@ export class Org_Follow extends Component {
           </div>
         </div>
 
-        <div className="col s12 form-submit mt-3">
-          <button
-            className="btn waves-effect waves-light blue darken-3"
-            type="submit"
-            name="action"
-          >
-            Submit >
-          </button>
-        </div>
         <div className="col s12 buttons">
           <Link
-            to="/setPassword"
+            to="/Dashboard"
             className="btn blue waves-effect waves-light btn-back"
           >
-            Back
+            My Profile
           </Link>
         </div>
       </div>

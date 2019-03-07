@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export class Dashboard extends Component {
   render() {
@@ -37,10 +38,17 @@ export class Dashboard extends Component {
                 <i className="material-icons circle red white-text">favorite</i>
                 <span className="title">Organizations I Follow:</span>
                 <p>
-                  <strong>{user.organization}</strong>
+                  <strong>{user.Organization}</strong>
                 </p>
               </li>
             </ul>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col s12 buttons">
+            <Link to="/orgFollow" className="btn blue">
+              Find Organizations To Follow
+            </Link>
           </div>
         </div>
       </div>
