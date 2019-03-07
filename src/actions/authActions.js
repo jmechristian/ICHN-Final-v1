@@ -4,10 +4,16 @@ import jwt_decode from 'jwt-decode';
 import { SET_CURRENT_USER, GET_ERRORS } from './types';
 
 //Register User
-export const registerUser = userData => {
+export const registerUser = (newUser, history) => dispatch => {
   axios
-    .post('https://ichnserver.gear.host/User/Register', userData)
-    .then(res => console.log(res.data).catch(err => console.log(err)));
+    .post('https://ichnserver.gear.host/User/Register', newUser)
+    .then(res => history.push('/orgFollow'))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
 };
 
 //Login User

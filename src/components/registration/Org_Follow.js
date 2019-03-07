@@ -4,41 +4,40 @@ import { connect } from 'react-redux';
 import { getOrgs } from '../../actions/orgActions';
 
 export class Org_Follow extends Component {
-  // state = {
-  //   orgs: []
-  // };
-
   componentDidMount() {
     this.props.getOrgs();
   }
 
-  // getOrgs = async () => {
-  //   const response = await fetch(
-  //     'https://ichnserver.gear.host/Organization/GetOrganizationView'
-  //   );
-  //   const json = await response.json();
-  //   this.setState({ orgs: json });
-  //   console.log(json);
-  // };
+  addOrgHandler(id) {
+    console.log(id);
+  }
 
   render() {
     const { orgs } = this.props.orgs;
 
     return (
       <div className="section section-password">
-        {orgs.map(org => (
-          <div className="row section" key={org.Id}>
-            <div className="col s12">
-              <div className="switch">
-                <label>
-                  {org.Name}
-                  <input type="checkbox" />
-                  <span className="lever" />
-                </label>
+        <div className="row section">
+          <div className="col s12">
+            <h4 className="mb-3">Organizations to Follow</h4>
+            {orgs.map(org => (
+              <div className="row" key={org.Id}>
+                <div className="col s8">{org.Name}</div>
+                <div className="s4">
+                  <button
+                    onClick={this.addOrgHandler.bind(this, org.Id)}
+                    className="btn-small waves-effect waves-light secondary-content"
+                    type="submit"
+                    name="action"
+                  >
+                    Follow
+                  </button>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
+
         <div className="col s12 form-submit mt-3">
           <button
             className="btn waves-effect waves-light blue darken-3"

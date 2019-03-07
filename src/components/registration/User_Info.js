@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import { withRouter } from 'react-router-dom';
+import { registerUser } from '../../actions/authActions';
 
 export class User_Info extends Component {
   state = {
@@ -8,8 +9,7 @@ export class User_Info extends Component {
     LastName: '',
     Email: '',
     Password: '',
-    Password2: '',
-    errors: {}
+    Password2: ''
   };
 
   onChange = e => {
@@ -27,14 +27,7 @@ export class User_Info extends Component {
       Password2: this.state.Password2
     };
 
-    //this.props.registerUser(newUser);
-    axios
-      .post('https://ichnserver.gear.host/User/Register', newUser)
-      .then(res => {
-        console.log(res.data);
-        this.props.history.push('/');
-      })
-      .catch(err => this.setState({ errors: err.response.data }));
+    this.props.registerUser(newUser, this.props.history);
   };
 
   componentDidMount() {
@@ -146,6 +139,12 @@ export class User_Info extends Component {
               </span>
             </div>
             <div className="col s12 form-submit">
+              <div className="row">
+                <div className="col s12">
+                  <p>{this.props.error ? this.props.error.message : ''}</p>
+                </div>
+              </div>
+
               <button
                 className="btn waves-effect waves-light blue darken-3"
                 type="submit"
@@ -162,7 +161,11 @@ export class User_Info extends Component {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  error: state.error
 });
 
-export default connect(mapStateToProps)(User_Info);
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(withRouter(User_Info));
