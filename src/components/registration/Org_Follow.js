@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getOrgs } from '../../actions/orgActions';
+import axios from 'axios';
 
 export class Org_Follow extends Component {
   componentDidMount() {
@@ -9,7 +10,12 @@ export class Org_Follow extends Component {
   }
 
   addOrgHandler(id) {
-    console.log(id);
+    axios
+      .post(
+        `http://ichnserver.gear.host/User/FollowOrganization?organizationId=${id}`
+      )
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   }
 
   render() {

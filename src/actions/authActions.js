@@ -1,7 +1,7 @@
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
-import { SET_CURRENT_USER, GET_ERRORS } from './types';
+import { SET_CURRENT_USER, GET_ERRORS, SET_FOLLOWING } from './types';
 
 //Register User
 export const registerUser = (newUser, history) => dispatch => {
@@ -47,6 +47,15 @@ export const setCurrentUser = decoded => {
     type: SET_CURRENT_USER,
     payload: decoded
   };
+};
+
+export const setFollowing = () => dispatch => {
+  axios.get('http://ichnserver.gear.host/User/GetWhoIFollow').then(res =>
+    dispatch({
+      type: SET_FOLLOWING,
+      payload: res.data
+    })
+  );
 };
 
 export const logoutUser = () => dispatch => {

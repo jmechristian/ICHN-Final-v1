@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setFollowing } from '../../actions/authActions';
 
 export class Dashboard extends Component {
+  componentDidMount() {
+    this.props.setFollowing();
+  }
+
   render() {
-    const { user } = this.props.auth;
+    const { user, following } = this.props.auth;
     return (
       <div className="section section-profile">
         <div className="row">
@@ -38,7 +43,9 @@ export class Dashboard extends Component {
                 <i className="material-icons circle red white-text">favorite</i>
                 <span className="title">Organizations I Follow:</span>
                 <p>
-                  <strong>{user.Organization}</strong>
+                  {following.map(org => (
+                    <strong>{org.Name}</strong>
+                  ))}
                 </p>
               </li>
             </ul>
@@ -60,4 +67,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(
+  mapStateToProps,
+  { setFollowing }
+)(Dashboard);

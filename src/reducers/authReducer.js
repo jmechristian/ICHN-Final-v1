@@ -1,9 +1,10 @@
-import { SET_CURRENT_USER } from '../actions/types';
+import { SET_CURRENT_USER, SET_FOLLOWING } from '../actions/types';
 import isEmpty from '../utils/isEmpty';
 
 const initialState = {
   isAuthenticated: false,
-  user: {}
+  user: {},
+  following: []
 };
 
 export default function(state = initialState, action) {
@@ -13,6 +14,11 @@ export default function(state = initialState, action) {
         ...state,
         isAuthenticated: !isEmpty(action.payload),
         user: action.payload
+      };
+    case SET_FOLLOWING:
+      return {
+        ...state,
+        following: action.payload
       };
     default:
       return state;
