@@ -42,11 +42,11 @@ export class Dashboard extends Component {
               <li className="collection-item avatar">
                 <i className="material-icons circle red white-text">favorite</i>
                 <span className="title">Organizations I Follow:</span>
-                <p>
-                  {following.map(org => (
+                {following.map(org => (
+                  <p key={org.Id}>
                     <strong>{org.Name}</strong>
-                  ))}
-                </p>
+                  </p>
+                ))}
               </li>
             </ul>
           </div>

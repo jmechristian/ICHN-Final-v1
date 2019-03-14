@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getOrgs } from '../../actions/orgActions';
+import { setFollowing } from '../../actions/authActions';
 import axios from 'axios';
 
 export class Org_Follow extends Component {
   componentDidMount() {
     this.props.getOrgs();
+    this.props.setFollowing();
   }
 
   addOrgHandler(id) {
@@ -64,5 +66,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getOrgs }
+  { getOrgs, setFollowing }
 )(Org_Follow);
