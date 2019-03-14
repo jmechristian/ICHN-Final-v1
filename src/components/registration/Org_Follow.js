@@ -2,22 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getOrgs } from '../../actions/orgActions';
-import { setFollowing } from '../../actions/authActions';
-import axios from 'axios';
+import OrganizationFeed from './organizations/organizationFeed';
 
 export class Org_Follow extends Component {
   componentDidMount() {
     this.props.getOrgs();
-    this.props.setFollowing();
-  }
-
-  addOrgHandler(id) {
-    axios
-      .post(
-        `http://ichnserver.gear.host/User/FollowOrganization?organizationId=${id}`
-      )
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
   }
 
   render() {
@@ -28,21 +17,7 @@ export class Org_Follow extends Component {
         <div className="row section">
           <div className="col s12">
             <h4 className="mb-3">Organizations to Follow</h4>
-            {orgs.map(org => (
-              <div className="row" key={org.Id}>
-                <div className="col s8">{org.Name}</div>
-                <div className="s4">
-                  <button
-                    onClick={this.addOrgHandler.bind(this, org.Id)}
-                    className="btn-small waves-effect waves-light secondary-content"
-                    type="submit"
-                    name="action"
-                  >
-                    Follow
-                  </button>
-                </div>
-              </div>
-            ))}
+            <OrganizationFeed orgs={orgs} />
           </div>
         </div>
 
@@ -66,5 +41,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getOrgs, setFollowing }
+  { getOrgs }
 )(Org_Follow);
