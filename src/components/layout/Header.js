@@ -29,9 +29,6 @@ class Header extends Component {
         <li>
           <Link to="/">Login</Link>
         </li>
-        <li>
-          <Link to="/">Admin</Link>
-        </li>
       </Aux>
     );
 
