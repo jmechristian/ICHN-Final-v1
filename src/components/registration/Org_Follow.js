@@ -8,7 +8,6 @@ import OrganizationFeed from './organizations/organizationFeed';
 export class Org_Follow extends Component {
   componentDidMount() {
     this.props.getOrgs();
-    this.props.setFollowing();
   }
 
   render() {
