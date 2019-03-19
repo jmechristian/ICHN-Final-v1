@@ -18,6 +18,8 @@ import Footer from './components/layout/Footer';
 import Landing from './components/layout/Landing';
 import Forgot_Password from './components/registration/Forgot_Password';
 import Dashboard from './components/profile/Dashboard';
+import OpenItems from './components/needs/OpenItems';
+import MyItems from './components/needs/MyItems';
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -55,6 +57,12 @@ class App extends Component {
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/orgFollow" component={Org_Follow} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/openItems" component={OpenItems} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/myItems" component={MyItems} />
               </Switch>
             </div>
             <Footer />

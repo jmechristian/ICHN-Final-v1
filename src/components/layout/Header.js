@@ -14,11 +14,22 @@ class Header extends Component {
     const { isAuthenticated } = this.props.auth;
 
     const authLinks = (
-      <li>
-        <a href="/" onClick={this.onLogoutClick}>
-          Logout
-        </a>
-      </li>
+      <Aux>
+        <li>
+          <a href="/Dashboard">My Dashboard</a>
+        </li>
+        <li>
+          <a href="/openItems">Open Items</a>
+        </li>
+        <li>
+          <a href="/myItems">My Items</a>
+        </li>
+        <li>
+          <a href="/" onClick={this.onLogoutClick}>
+            Logout
+          </a>
+        </li>
+      </Aux>
     );
 
     const guestLinks = (

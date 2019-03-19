@@ -19,6 +19,7 @@ export class oranizationFollow extends Component {
 
   render() {
     const { org } = this.props;
+
     return (
       <div>
         <div className="row">
