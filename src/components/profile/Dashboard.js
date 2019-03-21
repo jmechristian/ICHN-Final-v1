@@ -44,7 +44,9 @@ export class Dashboard extends Component {
                 <span className="title">Organizations I Follow:</span>
                 {following.map(org => (
                   <p key={org.Id}>
-                    <strong>{org.Name}</strong>
+                    <Link to="/openItems">
+                      <strong>{org.Name}</strong>
+                    </Link>
                   </p>
                 ))}
               </li>
