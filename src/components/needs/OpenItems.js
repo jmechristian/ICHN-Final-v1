@@ -13,10 +13,21 @@ export class OpenItems extends Component {
     return (
       <div>
         <h4>Open Items</h4>
-        <div>
-          {needs.map(need => (
-            <NeedItem key={need.Id} needs={need} />
-          ))}
+        <div className="row">
+          <table>
+            <thead>
+              <tr>
+                <th>Need</th>
+                <th>Details</th>
+                <th>Claim</th>
+              </tr>
+            </thead>
+            <tbody>
+              {needs.map(need => (
+                <NeedItem key={need.Id} needs={need} />
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     );

@@ -19,6 +19,7 @@ import Landing from './components/layout/Landing';
 import Forgot_Password from './components/registration/Forgot_Password';
 import Dashboard from './components/profile/Dashboard';
 import OpenItems from './components/needs/OpenItems';
+import NeedDetail from './components/needs/NeedDetail';
 import MyItems from './components/needs/MyItems';
 
 // Check for token
@@ -60,6 +61,13 @@ class App extends Component {
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/openItems" component={OpenItems} />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/openItems/:id"
+                  component={NeedDetail}
+                />
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/myItems" component={MyItems} />
