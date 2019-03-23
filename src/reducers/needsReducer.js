@@ -1,7 +1,8 @@
 import { GET_NEEDS } from '../actions/types';
 
 const initialState = {
-  needs: []
+  needs: [],
+  item: {}
 };
 
 export default function(state = initialState, action) {
