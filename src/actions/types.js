@@ -4,3 +4,4 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const GET_ORGS = 'GET_ORGS';
 export const SET_FOLLOWING = 'SET_FOLLOWING';
 export const GET_NEEDS = 'GET_NEEDS';
+export const GET_ITEM = 'GET_ITEM';

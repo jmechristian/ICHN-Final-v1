@@ -1,12 +1,13 @@
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
+import { Route } from '../utils/config';
 import { SET_CURRENT_USER, GET_ERRORS, SET_FOLLOWING } from './types';
 
 //Register User
 export const registerUser = (newUser, history) => dispatch => {
   axios
-    .post('https://ichnserver.gear.host/User/Register', newUser)
+    .post(`${Route}/User/Register`, newUser)
     .then(res => history.push('/orgFollow'))
     .catch(err =>
       dispatch({
@@ -19,7 +20,7 @@ export const registerUser = (newUser, history) => dispatch => {
 //Login User
 export const loginUser = user => dispatch => {
   axios
-    .post('https://ichnserver.gear.host/User/Login', user)
+    .post(`${Route}/User/Login`, user)
     .then(res => {
       console.log(res);
       // Save to localStorage
@@ -50,7 +51,7 @@ export const setCurrentUser = decoded => {
 };
 
 export const setFollowing = () => dispatch => {
-  axios.get('http://ichnserver.gear.host/User/GetWhoIFollow').then(res =>
+  axios.get(`${Route}/User/GetWhoIFollow`).then(res =>
     dispatch({
       type: SET_FOLLOWING,
       payload: res.data

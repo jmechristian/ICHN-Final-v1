@@ -1,10 +1,11 @@
 import { GET_ORGS, GET_ERRORS } from './types';
 import axios from 'axios';
+import { Route } from '../utils/config';
 
 //Get List of Organizations
 export const getOrgs = () => dispatch => {
   axios
-    .get('https://ichnserver.gear.host/Organization/GetOrganizationView')
+    .get(`${Route}/Organization/GetOrganizationView`)
     .then(res =>
       dispatch({
         type: GET_ORGS,

@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getDetails } from '../../actions/needsActions';
 
 export class NeedDetail extends Component {
+  componentDidMount() {
+    this.props.getDetails(this.props.match.params.id);
+  }
+
   render() {
+    const { item } = this.props.needs;
     return (
       <div className="section">
         <div className="row">
@@ -10,24 +16,24 @@ export class NeedDetail extends Component {
             <h4>Item Detail</h4>
             <ul className="collection with-header">
               <li className="collection-header">
-                <h5>Item Name</h5>
+                <h5>{item.NeedType}</h5>
               </li>
               <li className="collection-item">
-                <span className="title">Detail</span>
+                <span className="title">Details</span>
                 <p>
-                  <strong>Detail</strong>
+                  <strong>{item.Details}</strong>
                 </p>
               </li>
               <li className="collection-item">
                 <span className="title">Quantity</span>
                 <p>
-                  <strong>Quantity</strong>
+                  <strong>{item.Quantity}</strong>
                 </p>
               </li>
               <li className="collection-item">
                 <span className="title">Instructions</span>
                 <p>
-                  <strong>Instructions</strong>
+                  <strong>{item.Instructions}</strong>
                 </p>
               </li>
             </ul>
@@ -62,7 +68,10 @@ export class NeedDetail extends Component {
 }
 
 const mapStateToProps = state => ({
-  item: state.needs
+  needs: state.needs
 });
 
-export default connect(mapStateToProps)(NeedDetail);
+export default connect(
+  mapStateToProps,
+  { getDetails }
+)(NeedDetail);
