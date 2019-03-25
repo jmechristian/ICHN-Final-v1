@@ -19,7 +19,7 @@ export class OpenItems extends Component {
               <tr>
                 <th>Need</th>
                 <th>Details</th>
-                <th>Claim</th>
+                <th className="center">More Info</th>
               </tr>
             </thead>
             <tbody>

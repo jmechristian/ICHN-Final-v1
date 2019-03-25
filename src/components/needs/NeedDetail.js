@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getDetails } from '../../actions/needsActions';
+import { getDetails, claimNeed } from '../../actions/needsActions';
 
 export class NeedDetail extends Component {
   componentDidMount() {
     this.props.getDetails(this.props.match.params.id);
+  }
+
+  onClaimNeed(itemId, organizationId) {
+    this.props.claimNeed(itemId, organizationId);
   }
 
   render() {
@@ -44,6 +48,11 @@ export class NeedDetail extends Component {
                 className="btn waves-effect waves-light blue darken-3"
                 type="submit"
                 name="action"
+                onClick={this.onClaimNeed.bind(
+                  this,
+                  item.Id,
+                  item.OrganizationId
+                )}
               >
                 Claim
               </button>
@@ -73,5 +82,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getDetails }
+  { getDetails, claimNeed }
 )(NeedDetail);

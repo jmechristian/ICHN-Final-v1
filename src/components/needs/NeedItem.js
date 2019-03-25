@@ -14,9 +14,9 @@ export class NeedItem extends Component {
             </Link>
           </td>
           <td>{needs.Details}</td>
-          <td>
+          <td className="center">
             <button className="btn-floating btn-small waves-effect waves-light blue darken-3">
-              <i className="material-icons">add</i>
+              <i className="material-icons">loupe</i>
             </button>
           </td>
         </tr>
