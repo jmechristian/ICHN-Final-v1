@@ -1,6 +1,12 @@
 import axios from 'axios';
 import { Route } from '../utils/config';
-import { GET_NEEDS, GET_ERRORS, GET_ITEM, CLAIM_NEED } from './types';
+import {
+  GET_NEEDS,
+  GET_ERRORS,
+  GET_ITEM,
+  CLAIM_NEED,
+  GET_MY_NEED
+} from './types';
 
 //Get list of needs from Org the User follows
 export const getNeeds = () => dispatch => {
@@ -45,6 +51,24 @@ export const claimNeed = (needId, orgId) => dispatch => {
     .then(res =>
       dispatch({
         type: CLAIM_NEED,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data.Description
+      })
+    );
+};
+
+//Get Array of Needs Claimed By User
+export const getMyNeeds = () => dispatch => {
+  axios
+    .get(`${Route}/Need/GetNeedListClaimedByMe`)
+    .then(res =>
+      dispatch({
+        type: GET_MY_NEED,
         payload: res.data
       })
     )

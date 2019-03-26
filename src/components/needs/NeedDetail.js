@@ -9,6 +9,7 @@ export class NeedDetail extends Component {
 
   onClaimNeed(itemId, organizationId) {
     this.props.claimNeed(itemId, organizationId);
+    this.props.history.push('/myItems');
   }
 
   render() {

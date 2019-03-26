@@ -1,8 +1,9 @@
-import { GET_NEEDS, GET_ITEM, CLAIM_NEED } from '../actions/types';
+import { GET_NEEDS, GET_ITEM, CLAIM_NEED, GET_MY_NEED } from '../actions/types';
 
 const initialState = {
   needs: [],
-  item: {}
+  item: {},
+  myNeeds: []
 };
 
 export default function(state = initialState, action) {
@@ -20,6 +21,11 @@ export default function(state = initialState, action) {
     case CLAIM_NEED:
       return {
         ...state
+      };
+    case GET_MY_NEED:
+      return {
+        ...state,
+        myNeeds: action.payload
       };
     default:
       return state;

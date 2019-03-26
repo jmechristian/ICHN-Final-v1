@@ -29,6 +29,18 @@ export class OpenItems extends Component {
             </tbody>
           </table>
         </div>
+        <div className="row">
+          <div className="col s12 buttons">
+            <button
+              className="btn waves-effect waves-light blue darken-1"
+              type="submit"
+              name="action"
+              onClick={() => this.props.history.push('/myItems')}
+            >
+              See My Items
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
