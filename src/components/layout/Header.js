@@ -19,15 +19,15 @@ class Header extends Component {
           <Link to="/userapp/Dashboard">My Dashboard</Link>
         </li>
         <li>
-          <a href="/userapp/openItems">Open Items</a>
+          <Link to="/userapp/openItems">Open Items</Link>
         </li>
         <li>
-          <a href="/userapp/myItems">My Items</a>
+          <Link to="/userapp/myItems">My Items</Link>
         </li>
         <li>
-          <a href="/userapp" onClick={this.onLogoutClick}>
+          <Link to="/userapp" onClick={this.onLogoutClick}>
             Logout
-          </a>
+          </Link>
         </li>
       </Aux>
     );
