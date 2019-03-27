@@ -38,7 +38,7 @@ class Header extends Component {
           <Link to="/userapp">Register</Link>
         </li>
         <li>
-          <Link to="//userapp">Login</Link>
+          <Link to="/userapp">Login</Link>
         </li>
       </Aux>
     );
