@@ -14,18 +14,18 @@ export class Set_Password extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    this.props.history.push('/orgFollow');
+    this.props.history.push('/userapp/orgFollow');
   };
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push('/dashboard');
+      this.props.history.push('/userapp/dashboard');
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/dashboard');
+      this.props.history.push('/userapp/dashboard');
     }
   }
 
@@ -69,7 +69,7 @@ export class Set_Password extends Component {
           </form>
           <div className="col s12 buttons ">
             <Link
-              to="/register"
+              to="/userapp/register"
               className="btn blue waves-effect waves-light btn-back"
             >
               Back

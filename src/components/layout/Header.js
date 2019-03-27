@@ -16,16 +16,16 @@ class Header extends Component {
     const authLinks = (
       <Aux>
         <li>
-          <a href="/Dashboard">My Dashboard</a>
+          <Link to="/userapp/Dashboard">My Dashboard</Link>
         </li>
         <li>
-          <a href="/openItems">Open Items</a>
+          <a href="/userapp/openItems">Open Items</a>
         </li>
         <li>
-          <a href="/myItems">My Items</a>
+          <a href="/userapp/myItems">My Items</a>
         </li>
         <li>
-          <a href="/" onClick={this.onLogoutClick}>
+          <a href="/userapp" onClick={this.onLogoutClick}>
             Logout
           </a>
         </li>
@@ -35,10 +35,10 @@ class Header extends Component {
     const guestLinks = (
       <Aux>
         <li>
-          <Link to="/">Register</Link>
+          <Link to="/userapp">Register</Link>
         </li>
         <li>
-          <Link to="/">Login</Link>
+          <Link to="//userapp">Login</Link>
         </li>
       </Aux>
     );
@@ -47,10 +47,14 @@ class Header extends Component {
       <div>
         <nav className="blue darken-1">
           <div className="nav-wrapper">
-            <Link to="/" className="brand-logo">
+            <Link to="/userapp/" className="brand-logo">
               iCanHelpNetwork
             </Link>
-            <Link to="/" data-target="mobile-demo" className="sidenav-trigger">
+            <Link
+              to="/userapp/"
+              data-target="mobile-demo"
+              className="sidenav-trigger"
+            >
               <i className="material-icons">menu</i>
             </Link>
             <ul className="right hide-on-med-and-down">

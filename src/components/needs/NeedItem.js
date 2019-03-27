@@ -9,7 +9,7 @@ export class NeedItem extends Component {
       <Aux>
         <tr>
           <td>
-            <Link to={`/openItems/${needs.Id}`}>
+            <Link to={`/userapp/openItems/${needs.Id}`}>
               <strong>{needs.NeedType}</strong>
             </Link>
           </td>
@@ -17,7 +17,9 @@ export class NeedItem extends Component {
           <td className="center">
             <button
               className="btn-floating btn-small waves-effect waves-light blue darken-3"
-              onClick={() => this.props.history.push(`/openItems/${needs.Id}`)}
+              onClick={() =>
+                this.props.history.push(`/userapp/openItems/${needs.Id}`)
+              }
             >
               <i className="material-icons">loupe</i>
             </button>

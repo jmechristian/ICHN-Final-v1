@@ -35,7 +35,7 @@ export class OpenItems extends Component {
               className="btn waves-effect waves-light blue darken-1"
               type="submit"
               name="action"
-              onClick={() => this.props.history.push('/myItems')}
+              onClick={() => this.props.history.push('/userapp/myItems')}
             >
               See My Items
             </button>
