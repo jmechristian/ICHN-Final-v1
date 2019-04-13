@@ -61,6 +61,7 @@ export const claimNeed = (needId, orgId) => dispatch => {
         payload: err.response.data.Description
       })
     );
+  window.location.href = '/userapp/myItems';
 };
 
 //Get Array of Needs Claimed By User
