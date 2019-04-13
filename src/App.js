@@ -4,7 +4,6 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 import PrivateRoute from './utils/PrivateRoute';
-
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -21,6 +20,7 @@ import Dashboard from './components/profile/Dashboard';
 import OpenItems from './components/needs/OpenItems';
 import NeedDetail from './components/needs/NeedDetail';
 import MyItems from './components/needs/MyItems';
+import MyNeedDetail from './components/needs/MyNeedDetail';
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -94,6 +94,13 @@ class App extends Component {
                   exact
                   path="/userapp/myItems"
                   component={MyItems}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/userapp/myItems/:id"
+                  component={MyNeedDetail}
                 />
               </Switch>
             </div>

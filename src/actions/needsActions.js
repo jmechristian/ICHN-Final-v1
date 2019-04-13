@@ -5,7 +5,8 @@ import {
   GET_ERRORS,
   GET_ITEM,
   CLAIM_NEED,
-  GET_MY_NEED
+  GET_MY_NEED,
+  RELEASE_NEED
 } from './types';
 
 //Get list of needs from Org the User follows
@@ -78,4 +79,23 @@ export const getMyNeeds = () => dispatch => {
         payload: err.response.data.Description
       })
     );
+};
+
+//Release a Need for a User
+export const releaseNeed = (needId, orgId) => dispatch => {
+  axios
+    .get(`${Route}/Need/ReleaseNeed?needId=${needId}&orgId=${orgId}`)
+    .then(res =>
+      dispatch({
+        type: RELEASE_NEED,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data.Description
+      })
+    );
+  window.location.href = '/userapp/myItems';
 };

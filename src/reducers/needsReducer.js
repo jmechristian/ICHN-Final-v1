@@ -1,4 +1,10 @@
-import { GET_NEEDS, GET_ITEM, CLAIM_NEED, GET_MY_NEED } from '../actions/types';
+import {
+  GET_NEEDS,
+  GET_ITEM,
+  CLAIM_NEED,
+  GET_MY_NEED,
+  RELEASE_NEED
+} from '../actions/types';
 
 const initialState = {
   needs: [],
@@ -26,6 +32,10 @@ export default function(state = initialState, action) {
       return {
         ...state,
         myNeeds: action.payload
+      };
+    case RELEASE_NEED:
+      return {
+        ...state
       };
     default:
       return state;

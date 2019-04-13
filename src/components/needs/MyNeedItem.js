@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Aux from '../../utils/Hoc';
 
 export class MyNeedItem extends Component {
@@ -13,7 +14,12 @@ export class MyNeedItem extends Component {
           </td>
           <td>{myNeed.Details}</td>
           <td className="center">
-            <button className="btn-floating btn-small waves-effect waves-light blue darken-3">
+            <button
+              className="btn-floating btn-small waves-effect waves-light blue darken-3"
+              onClick={() =>
+                this.props.history.push(`/userapp/myItems/${myNeed.Id}`)
+              }
+            >
               <i className="material-icons">loupe</i>
             </button>
           </td>
@@ -23,4 +29,4 @@ export class MyNeedItem extends Component {
   }
 }
 
-export default MyNeedItem;
+export default withRouter(MyNeedItem);
