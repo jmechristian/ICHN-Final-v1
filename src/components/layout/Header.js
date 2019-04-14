@@ -15,16 +15,16 @@ class Header extends Component {
 
     const authLinks = (
       <Aux>
-        <li>
+        <li className="sidenav-close">
           <Link to="/userapp/Dashboard">My Dashboard</Link>
         </li>
-        <li>
+        <li className="sidenav-close">
           <Link to="/userapp/openItems">Open Items</Link>
         </li>
-        <li>
+        <li className="sidenav-close">
           <Link to="/userapp/myItems">My Items</Link>
         </li>
-        <li>
+        <li className="sidenav-close">
           <Link to="/userapp" onClick={this.onLogoutClick}>
             Logout
           </Link>
@@ -34,10 +34,10 @@ class Header extends Component {
 
     const guestLinks = (
       <Aux>
-        <li>
+        <li className="sidenav-close">
           <Link to="/userapp">Register</Link>
         </li>
-        <li>
+        <li className="sidenav-close">
           <Link to="/userapp">Login</Link>
         </li>
       </Aux>
