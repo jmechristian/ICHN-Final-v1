@@ -7,9 +7,10 @@ export class NeedDetail extends Component {
     this.props.getDetails(this.props.match.params.id);
   }
 
-  onClaimNeed(itemId, organizationId) {
-    this.props.claimNeed(itemId, organizationId);
-  }
+  onClaimNeed = async (itemId, organizationId) => {
+    await this.props.claimNeed(itemId, organizationId);
+    this.props.history.push('/userapp/myItems');
+  };
 
   render() {
     const { item } = this.props.needs;

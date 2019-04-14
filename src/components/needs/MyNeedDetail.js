@@ -7,8 +7,9 @@ export class MyNeedDetail extends Component {
     this.props.getDetails(this.props.match.params.id);
   }
 
-  onReleaseNeed = (itemId, organizationId) => {
-    this.props.releaseNeed(itemId, organizationId);
+  onReleaseNeed = async (itemId, organizationId) => {
+    await this.props.releaseNeed(itemId, organizationId);
+    this.props.history.push('/userapp/myItems');
   };
 
   render() {
