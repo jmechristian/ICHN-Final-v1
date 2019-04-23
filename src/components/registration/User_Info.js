@@ -121,23 +121,6 @@ export class User_Info extends Component {
                 Required
               </span>
             </div>
-            <div className="col s12 m6 input-field">
-              <input
-                name="Password2"
-                type="password"
-                placeholder="Confirm Password"
-                className="validate"
-                value={this.state.Password2}
-                onChange={this.onChange}
-              />
-              <span
-                className="helper-text"
-                data-error="required"
-                data-success=" "
-              >
-                Required
-              </span>
-            </div>
             <div className="col s12 form-submit">
               <div className="row">
                 <div className="col s12">
