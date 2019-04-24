@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 export class oranizationFollow extends Component {
@@ -19,6 +20,13 @@ export class oranizationFollow extends Component {
 
   render() {
     const { org } = this.props;
+    const { following } = this.props.auth;
+
+    var newArray = following.map(org => org.Id);
+    console.log(newArray);
+
+    let buttonDisabled = newArray.lastIndexOf(org.Id);
+    console.log(buttonDisabled);
 
     return (
       <div>
@@ -30,7 +38,7 @@ export class oranizationFollow extends Component {
               className="btn-small waves-effect waves-light secondary-content"
               type="submit"
               name="action"
-              disabled={this.state.btnDisabled}
+              disabled={buttonDisabled > -1 ? true : false}
             >
               Follow
             </button>
@@ -41,4 +49,8 @@ export class oranizationFollow extends Component {
   }
 }
 
-export default oranizationFollow;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(oranizationFollow);

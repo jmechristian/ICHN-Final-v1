@@ -10,6 +10,7 @@ export class Dashboard extends Component {
 
   render() {
     const { user, following } = this.props.auth;
+
     return (
       <div className="section section-profile">
         <div className="row">

@@ -8,6 +8,7 @@ import OrganizationFeed from './organizations/organizationFeed';
 export class Org_Follow extends Component {
   componentDidMount() {
     this.props.getOrgs();
+    this.props.setFollowing();
   }
 
   render() {
@@ -36,7 +37,6 @@ export class Org_Follow extends Component {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth,
   orgs: state.organization
 });
 
