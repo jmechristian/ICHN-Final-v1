@@ -16,16 +16,16 @@ class Header extends Component {
     const authLinks = (
       <Aux>
         <li className="sidenav-close">
-          <Link to="/userapp/Dashboard">My Dashboard</Link>
+          <Link to="/Dashboard">My Dashboard</Link>
         </li>
         <li className="sidenav-close">
-          <Link to="/userapp/openItems">Open Items</Link>
+          <Link to="/openItems">Open Items</Link>
         </li>
         <li className="sidenav-close">
-          <Link to="/userapp/myItems">My Items</Link>
+          <Link to="/myItems">My Items</Link>
         </li>
         <li className="sidenav-close">
-          <Link to="/userapp" onClick={this.onLogoutClick}>
+          <Link to="/" onClick={this.onLogoutClick}>
             Logout
           </Link>
         </li>
@@ -35,10 +35,10 @@ class Header extends Component {
     const guestLinks = (
       <Aux>
         <li className="sidenav-close">
-          <Link to="/userapp">Register</Link>
+          <Link to="/">Register</Link>
         </li>
         <li className="sidenav-close">
-          <Link to="/userapp">Login</Link>
+          <Link to="/">Login</Link>
         </li>
       </Aux>
     );
@@ -47,14 +47,10 @@ class Header extends Component {
       <div>
         <nav className="blue darken-1">
           <div className="nav-wrapper">
-            <Link to="/userapp/" className="brand-logo">
+            <Link to="/" className="brand-logo">
               iCanHelpNetwork
             </Link>
-            <Link
-              to="/userapp/"
-              data-target="mobile-demo"
-              className="sidenav-trigger"
-            >
+            <Link to="/" data-target="mobile-demo" className="sidenav-trigger">
               <i className="material-icons">menu</i>
             </Link>
             <ul className="right hide-on-med-and-down">

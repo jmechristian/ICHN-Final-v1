@@ -25,7 +25,7 @@ export class Org_Follow extends Component {
 
         <div className="col s12 buttons">
           <Link
-            to="/userapp/Dashboard"
+            to="/Dashboard"
             className="btn blue waves-effect waves-light btn-back"
           >
             My Profile

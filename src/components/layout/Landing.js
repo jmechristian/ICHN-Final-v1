@@ -12,13 +12,13 @@ export class Landing extends Component {
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push('/userapp/dashboard');
+      this.props.history.push('/dashboard');
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/userapp/dashboard');
+      this.props.history.push('/dashboard');
     }
   }
 
@@ -92,14 +92,14 @@ export class Landing extends Component {
           </div>
           <div className="row">
             <div className="col s12 buttons">
-              <Link to="/userapp/register" className="btn blue">
+              <Link to="/register" className="btn blue">
                 Register
               </Link>
             </div>
           </div>
           <div className="row">
             <div className="col s12 buttons">
-              <Link to="/userapp/forgotPassword" className="btn blue">
+              <Link to="/forgotPassword" className="btn blue">
                 Forgot Password
               </Link>
             </div>

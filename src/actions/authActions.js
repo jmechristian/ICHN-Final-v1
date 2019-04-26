@@ -1,14 +1,14 @@
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
-import { Route, UserApp } from '../utils/config';
+import { Route } from '../utils/config';
 import { SET_CURRENT_USER, GET_ERRORS, SET_FOLLOWING } from './types';
 
 //Register User
 export const registerUser = (newUser, history) => dispatch => {
   axios
     .post(`${Route}/User/Register`, newUser)
-    .then(res => history.push(`${UserApp}/orgFollow`))
+    .then(res => history.push('/orgFollow'))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,

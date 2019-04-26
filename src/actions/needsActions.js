@@ -97,5 +97,5 @@ export const releaseNeed = (needId, orgId) => dispatch => {
         payload: err.response.data.Description
       })
     );
-  window.location.href = '/userapp/myItems';
+  window.location.href = '/myItems';
 };

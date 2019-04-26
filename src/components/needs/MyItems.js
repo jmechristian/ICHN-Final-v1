@@ -35,7 +35,7 @@ export class MyItems extends Component {
               className="btn waves-effect waves-light blue darken-1"
               type="submit"
               name="action"
-              onClick={() => this.props.history.push('/userapp/openItems')}
+              onClick={() => this.props.history.push('/openItems')}
             >
               Back to Open Items
             </button>

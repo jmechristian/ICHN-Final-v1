@@ -37,7 +37,7 @@ if (localStorage.jwtToken) {
     // Logout user
     store.dispatch(logoutUser());
     // Redirect to login
-    window.location.href = '/userapp/';
+    window.location.href = '/';
   }
 }
 
@@ -48,58 +48,34 @@ class App extends Component {
         <Router>
           <div className="App">
             <Header />
-            <Route exact path="/userapp/" component={Landing} />
+            <Route exact path="/" component={Landing} />
             <div className="container">
-              <Route exact path="/userapp/register" component={User_Info} />
-              <Route
-                exact
-                path="/userapp/setPassword"
-                component={Set_Password}
-              />
-              <Route
-                exact
-                path="/userapp/forgotPassword"
-                component={Forgot_Password}
-              />
+              <Route exact path="/register" component={User_Info} />
+              <Route exact path="/setPassword" component={Set_Password} />
+              <Route exact path="/forgotPassword" component={Forgot_Password} />
               <Switch>
-                <PrivateRoute
-                  exact
-                  path="/userapp/dashboard"
-                  component={Dashboard}
-                />
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/orgFollow" component={Org_Follow} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/openItems" component={OpenItems} />
               </Switch>
               <Switch>
                 <PrivateRoute
                   exact
-                  path="/userapp/orgFollow"
-                  component={Org_Follow}
-                />
-              </Switch>
-              <Switch>
-                <PrivateRoute
-                  exact
-                  path="/userapp/openItems"
-                  component={OpenItems}
-                />
-              </Switch>
-              <Switch>
-                <PrivateRoute
-                  exact
-                  path="/userapp/openItems/:id"
+                  path="/openItems/:id"
                   component={NeedDetail}
                 />
               </Switch>
               <Switch>
-                <PrivateRoute
-                  exact
-                  path="/userapp/myItems"
-                  component={MyItems}
-                />
+                <PrivateRoute exact path="/myItems" component={MyItems} />
               </Switch>
               <Switch>
                 <PrivateRoute
                   exact
-                  path="/userapp/myItems/:id"
+                  path="/myItems/:id"
                   component={MyNeedDetail}
                 />
               </Switch>
