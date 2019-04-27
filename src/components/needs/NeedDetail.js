@@ -9,7 +9,7 @@ export class NeedDetail extends Component {
 
   onClaimNeed = async (itemId, organizationId) => {
     await this.props.claimNeed(itemId, organizationId);
-    this.props.history.push('/userapp/myItems');
+    this.props.history.push('/myItems');
   };
 
   render() {
@@ -65,7 +65,7 @@ export class NeedDetail extends Component {
                 className="btn waves-effect waves-light blue darken-1"
                 type="submit"
                 name="action"
-                onClick={() => this.props.history.push('/userapp/openItems')}
+                onClick={() => this.props.history.push('/openItems')}
               >
                 Back to Items
               </button>

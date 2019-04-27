@@ -9,7 +9,7 @@ export class MyNeedDetail extends Component {
 
   onReleaseNeed = async (itemId, organizationId) => {
     await this.props.releaseNeed(itemId, organizationId);
-    this.props.history.push('/userapp/myItems');
+    this.props.history.push('/myItems');
   };
 
   render() {
@@ -65,7 +65,7 @@ export class MyNeedDetail extends Component {
                 className="btn waves-effect waves-light blue darken-1"
                 type="submit"
                 name="action"
-                onClick={() => this.props.history.push('/userapp/myItems')}
+                onClick={() => this.props.history.push('/myItems')}
               >
                 Back to My Items
               </button>
