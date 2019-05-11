@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { getDetails, releaseNeed } from '../../actions/needsActions';
 
 export class MyNeedDetail extends Component {
@@ -84,4 +85,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getDetails, releaseNeed }
-)(MyNeedDetail);
+)(withRouter(MyNeedDetail));
