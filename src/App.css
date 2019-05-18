@@ -18,10 +18,39 @@ label {
   font-size: 1.25rem;
 }
 
+.prefix {
+  color: #9ebacb !important;
+}
+
+/* PROFILE */
+
+.profile {
+  background-color: #9ebacb;
+  color: white;
+}
+
+.profile .profile-name {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
 /* HELPERS 2,5,10 */
+
+.mt-2 {
+  margin-top: 5%;
+}
 
 .mt-3 {
   margin-top: 10%;
+}
+
+.mb-1 {
+  margin-bottom: 2%;
+}
+
+.mb-2 {
+  margin-bottom: 5%;
 }
 
 .mb-3 {
