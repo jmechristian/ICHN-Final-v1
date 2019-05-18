@@ -35,7 +35,7 @@ class Header extends Component {
     const guestLinks = (
       <Aux>
         <li className="sidenav-close">
-          <Link to="/">Register</Link>
+          <Link to="/register">Sign Up</Link>
         </li>
         <li className="sidenav-close">
           <Link to="/">Login</Link>
@@ -47,9 +47,9 @@ class Header extends Component {
       <div>
         <nav className="blue darken-1">
           <div className="nav-wrapper">
-            <Link to="/" className="brand-logo">
+            {/* <Link to="/" className="brand-logo">
               iCanHelpNetwork
-            </Link>
+            </Link> */}
             <Link to="/" data-target="mobile-demo" className="sidenav-trigger">
               <i className="material-icons">menu</i>
             </Link>

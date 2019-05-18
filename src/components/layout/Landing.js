@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { loginUser } from '../../actions/authActions';
+import logo from '../../img/SVG/ich-horizontal.svg';
 
 export class Landing extends Component {
   state = {
@@ -41,9 +42,15 @@ export class Landing extends Component {
     return (
       <div className="section section-login">
         <div className="container">
+          <div className="row ">
+            <div className="col s10 offset-s1">
+              <img src={logo} alt="logo" className="img-responsive" />
+            </div>
+          </div>
           <div className="row">
             <form onSubmit={this.onSubmit}>
               <div className="col s12 m6 input-field">
+                <i className="material-icons prefix">account_circle</i>
                 <input
                   name="Email"
                   type="email"
@@ -59,6 +66,7 @@ export class Landing extends Component {
                 />
               </div>
               <div className="col s12 m6 input-field">
+                <i className="material-icons prefix">vpn_key</i>
                 <input
                   name="Password"
                   type="password"
@@ -85,7 +93,7 @@ export class Landing extends Component {
                   type="submit"
                   name="action"
                 >
-                  Submit
+                  Login
                 </button>
               </div>
             </form>
@@ -93,15 +101,13 @@ export class Landing extends Component {
           <div className="row">
             <div className="col s12 buttons">
               <Link to="/register" className="btn blue">
-                Register
+                Sign Up
               </Link>
             </div>
           </div>
           <div className="row">
-            <div className="col s12 buttons">
-              <Link to="/forgotPassword" className="btn blue">
-                Forgot Password
-              </Link>
+            <div className="col s12 center-align">
+              <Link to="/forgotPassword">Forgot Password?</Link>
             </div>
           </div>
         </div>
