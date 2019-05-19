@@ -1,25 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { setFollowing } from '../../actions/authActions';
+import OrgList from './orgList';
 import { getNeeds, getMyNeeds } from '../../actions/needsActions';
 
 export class Dashboard extends Component {
   componentDidMount() {
-    this.props.setFollowing();
     this.props.getNeeds();
     this.props.getMyNeeds();
   }
 
-  removeOrgHandler(id) {
-    axios.post(
-      `http://ichnserver.gear.host/User/unfollowOrganization?organizationId=${id}`
-    );
-  }
-
   render() {
-    const { user, following } = this.props.auth;
+    const { user } = this.props.auth;
     const { needs, myNeeds } = this.props.needs;
 
     return (
@@ -71,21 +63,7 @@ export class Dashboard extends Component {
                 <li className="collection-header">
                   <h5>My Organizations</h5>
                 </li>
-
-                {following.map(org => (
-                  <li className="collection-item" key={org.Id}>
-                    <div>
-                      {org.Name}
-                      <a
-                        href="#!"
-                        className="secondary-content"
-                        onClick={this.removeOrgHandler.bind(this, org.Id)}
-                      >
-                        <i className="material-icons">remove_circle</i>
-                      </a>
-                    </div>
-                  </li>
-                ))}
+                <OrgList />
               </ul>
             </div>
           </div>
@@ -109,5 +87,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { setFollowing, getNeeds, getMyNeeds }
+  { getNeeds, getMyNeeds }
 )(Dashboard);

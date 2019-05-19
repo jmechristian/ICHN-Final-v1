@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, SET_FOLLOWING } from '../actions/types';
+import { SET_CURRENT_USER, SET_FOLLOWING, REMOVE_ORG } from '../actions/types';
 import isEmpty from '../utils/isEmpty';
 
 const initialState = {
@@ -16,6 +16,11 @@ export default function(state = initialState, action) {
         user: action.payload
       };
     case SET_FOLLOWING:
+      return {
+        ...state,
+        following: action.payload
+      };
+    case REMOVE_ORG:
       return {
         ...state,
         following: action.payload

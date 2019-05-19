@@ -2,7 +2,12 @@ import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
 import { Route } from '../utils/config';
-import { SET_CURRENT_USER, GET_ERRORS, SET_FOLLOWING } from './types';
+import {
+  SET_CURRENT_USER,
+  GET_ERRORS,
+  SET_FOLLOWING,
+  REMOVE_ORG
+} from './types';
 
 //Register User
 export const registerUser = (newUser, history) => dispatch => {
@@ -50,6 +55,7 @@ export const setCurrentUser = decoded => {
   };
 };
 
+// Get following for a user
 export const setFollowing = () => dispatch => {
   axios.get(`${Route}/User/GetWhoIFollow`).then(res =>
     dispatch({
@@ -59,6 +65,19 @@ export const setFollowing = () => dispatch => {
   );
 };
 
+// Unfollow an organization for a user
+export const unFollow = id => dispatch => {
+  axios
+    .post(`${Route}/User/UnfollowOrganization?organizationId=${id}`)
+    .then(res =>
+      dispatch({
+        type: REMOVE_ORG,
+        payload: res.data
+      })
+    );
+};
+
+// Log out user
 export const logoutUser = () => dispatch => {
   // Remove token from localStorage
   localStorage.removeItem('jwtToken');
