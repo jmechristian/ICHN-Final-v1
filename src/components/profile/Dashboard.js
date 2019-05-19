@@ -16,7 +16,8 @@ export class Dashboard extends Component {
         <div className="section profile center-align">
           <div className="row mt-2 mb-2 valign-wrapper">
             <div className="col s12">
-              <i className="material-icons circle white-text medium">
+              <span className="page-title">Profile</span>
+              <i className="material-icons circle white-text large">
                 account_circle
               </i>
               <span className="profile-name">{user.unique_name}</span>
@@ -26,12 +27,17 @@ export class Dashboard extends Component {
         </div>
         <div className="section section-profile container">
           <div className="row">
+            <div className="col s8 offset-s2 center-align mt-2">
+              <div className="circle-outline">
+                <span className="open-number">6</span>
+                <span className="open-descrip">Open Items</span>
+              </div>
+            </div>
+          </div>
+          <div className="row">
             <div className="col s12">
               <ul className="collection with-header">
-                <li className="collection-item avatar">
-                  <i className="material-icons circle red white-text">
-                    favorite
-                  </i>
+                <li className="collection-item">
                   <span className="title">Organizations I Follow:</span>
                   {following.map(org => (
                     <p key={org.Id}>
