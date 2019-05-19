@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { setFollowing } from '../../actions/authActions';
+import { getNeeds, getMyNeeds } from '../../actions/needsActions';
 
 export class Dashboard extends Component {
   componentDidMount() {
     this.props.setFollowing();
+    this.props.getNeeds();
+    this.props.getMyNeeds();
+  }
+
+  removeOrgHandler(id) {
+    axios.post(
+      `http://ichnserver.gear.host/User/unfollowOrganization?organizationId=${id}`
+    );
   }
 
   render() {
     const { user, following } = this.props.auth;
+    const { needs, myNeeds } = this.props.needs;
 
     return (
       <div>
@@ -27,26 +38,54 @@ export class Dashboard extends Component {
         </div>
         <div className="section section-profile container">
           <div className="row">
-            <div className="col s8 offset-s2 center-align mt-2">
-              <div className="circle-outline">
-                <span className="open-number">6</span>
-                <span className="open-descrip">Open Items</span>
+            <div className="row">
+              <div className="col s6 center-align">
+                <div className="circle-outline">
+                  <span className="open-number">{needs.length}</span>
+                  <span className="open-descrip">Open Items</span>
+                </div>
+              </div>
+              <div className="col s6 center-align">
+                <div className="circle-outline">
+                  <span className="open-number">{myNeeds.length}</span>
+                  <span className="open-descrip">My Items</span>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col s6 buttons">
+                <Link to="/openItems" className="btn blue">
+                  Claim Items
+                </Link>
+              </div>
+              <div className="col s6 buttons">
+                <Link to="/myItems" className="btn blue">
+                  See My Items
+                </Link>
               </div>
             </div>
           </div>
           <div className="row">
             <div className="col s12">
               <ul className="collection with-header">
-                <li className="collection-item">
-                  <span className="title">Organizations I Follow:</span>
-                  {following.map(org => (
-                    <p key={org.Id}>
-                      <Link to="/openItems">
-                        <strong>{org.Name}</strong>
-                      </Link>
-                    </p>
-                  ))}
+                <li className="collection-header">
+                  <h5>My Organizations</h5>
                 </li>
+
+                {following.map(org => (
+                  <li className="collection-item" key={org.Id}>
+                    <div>
+                      {org.Name}
+                      <a
+                        href="#!"
+                        className="secondary-content"
+                        onClick={this.removeOrgHandler.bind(this, org.Id)}
+                      >
+                        <i className="material-icons">remove_circle</i>
+                      </a>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -64,10 +103,11 @@ export class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  needs: state.needs
 });
 
 export default connect(
   mapStateToProps,
-  { setFollowing }
+  { setFollowing, getNeeds, getMyNeeds }
 )(Dashboard);

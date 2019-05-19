@@ -16,7 +16,7 @@ class Header extends Component {
     const authLinks = (
       <Aux>
         <li className="sidenav-close">
-          <Link to="/Dashboard">My Dashboard</Link>
+          <Link to="/#/Dashboard">My Dashboard</Link>
         </li>
         <li className="sidenav-close">
           <Link to="/openItems">Open Items</Link>

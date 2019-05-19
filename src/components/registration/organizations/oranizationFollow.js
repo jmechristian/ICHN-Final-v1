@@ -8,12 +8,9 @@ export class oranizationFollow extends Component {
   };
 
   addOrgHandler(id) {
-    axios
-      .post(
-        `http://ichnserver.gear.host/User/FollowOrganization?organizationId=${id}`
-      )
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+    axios.post(
+      `http://ichnserver.gear.host/User/FollowOrganization?organizationId=${id}`
+    );
 
     this.setState({ btnDisabled: true });
   }
@@ -23,10 +20,8 @@ export class oranizationFollow extends Component {
     const { following } = this.props.auth;
 
     var newArray = following.map(org => org.Id);
-    console.log(newArray);
 
     let buttonDisabled = newArray.lastIndexOf(org.Id);
-    console.log(buttonDisabled);
 
     return (
       <div>
@@ -38,7 +33,9 @@ export class oranizationFollow extends Component {
               className="btn-small waves-effect waves-light secondary-content"
               type="submit"
               name="action"
-              disabled={buttonDisabled > -1 ? true : false}
+              disabled={
+                buttonDisabled > -1 ? true : false || this.state.btnDisabled
+              }
             >
               Follow
             </button>
