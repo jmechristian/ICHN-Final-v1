@@ -30,7 +30,7 @@ export class oranizationFollow extends Component {
           <div className="s4">
             <button
               onClick={this.addOrgHandler.bind(this, org.Id)}
-              className="btn-small waves-effect waves-light secondary-content"
+              className="btn-small ichn-green waves-effect waves-light secondary-content"
               type="submit"
               name="action"
               disabled={

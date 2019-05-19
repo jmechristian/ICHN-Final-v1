@@ -45,7 +45,7 @@ class Header extends Component {
 
     return (
       <div>
-        <nav className="blue darken-1">
+        <nav className="ichn-blue">
           <div className="nav-wrapper">
             {/* <Link to="/" className="brand-logo">
               iCanHelpNetwork

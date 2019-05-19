@@ -46,12 +46,12 @@ export class Dashboard extends Component {
             </div>
             <div className="row">
               <div className="col s6 buttons">
-                <Link to="/openItems" className="btn blue">
+                <Link to="/openItems" className="btn ichn-blue">
                   Claim Items
                 </Link>
               </div>
               <div className="col s6 buttons">
-                <Link to="/myItems" className="btn blue">
+                <Link to="/myItems" className="btn ichn-blue">
                   See My Items
                 </Link>
               </div>
@@ -69,7 +69,7 @@ export class Dashboard extends Component {
           </div>
           <div className="row">
             <div className="col s12 buttons">
-              <Link to="/orgFollow" className="btn blue">
+              <Link to="/orgFollow" className="btn ichn-blue">
                 Find Organizations To Follow
               </Link>
             </div>

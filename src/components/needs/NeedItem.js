@@ -16,7 +16,7 @@ export class NeedItem extends Component {
           <td>{needs.Details}</td>
           <td className="center">
             <button
-              className="btn-floating btn-small waves-effect waves-light blue darken-3"
+              className="btn-floating btn-small waves-effect waves-light ichn-green"
               onClick={() => this.props.history.push(`/openItems/${needs.Id}`)}
             >
               <i className="material-icons">loupe</i>

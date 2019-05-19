@@ -89,7 +89,7 @@ export class Landing extends Component {
 
               <div className="col s12 form-submit">
                 <button
-                  className="btn waves-effect waves-light blue darken-3"
+                  className="btn waves-effect waves-light ichn-blue"
                   type="submit"
                   name="action"
                 >
@@ -100,7 +100,7 @@ export class Landing extends Component {
           </div>
           <div className="row">
             <div className="col s12 buttons">
-              <Link to="/register" className="btn blue">
+              <Link to="/register" className="btn ichn-grey">
                 Sign Up
               </Link>
             </div>

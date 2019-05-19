@@ -15,21 +15,29 @@ export class Org_Follow extends Component {
     const { orgs } = this.props.orgs;
 
     return (
-      <div className="section section-password">
-        <div className="row section">
-          <div className="col s12">
-            <h4 className="mb-3">Organizations to Follow</h4>
-            <OrganizationFeed orgs={orgs} />
+      <div>
+        <div className="section profile center-align">
+          <div className="row mt-2 mb-1 valign-wrapper">
+            <div className="col s12">
+              <span className="page-title">Organizations</span>
+            </div>
           </div>
         </div>
+        <div className="section section-password container">
+          <div className="row section">
+            <div className="col s12">
+              <OrganizationFeed orgs={orgs} />
+            </div>
+          </div>
 
-        <div className="col s12 buttons">
-          <Link
-            to="/Dashboard"
-            className="btn blue waves-effect waves-light btn-back"
-          >
-            My Profile
-          </Link>
+          <div className="col s12 buttons">
+            <Link
+              to="/Dashboard"
+              className="btn ichn-blue waves-effect waves-light btn-back"
+            >
+              My Profile
+            </Link>
+          </div>
         </div>
       </div>
     );

@@ -12,33 +12,41 @@ export class MyItems extends Component {
     const { myNeeds } = this.props.needs;
     return (
       <div>
-        <h4>My Items</h4>
-        <div className="row">
-          <table>
-            <thead>
-              <tr>
-                <th>Need</th>
-                <th>Details</th>
-                <th className="center">More Info</th>
-              </tr>
-            </thead>
-            <tbody>
-              {myNeeds.map(myNeed => (
-                <MyNeedItem key={myNeed.Id} myNeed={myNeed} />
-              ))}
-            </tbody>
-          </table>
+        <div className="section profile center-align">
+          <div className="row mt-2 mb-1 valign-wrapper">
+            <div className="col s12">
+              <span className="page-title">My Items</span>
+            </div>
+          </div>
         </div>
-        <div className="row mt-3">
-          <div className="col s12 buttons">
-            <button
-              className="btn waves-effect waves-light blue darken-1"
-              type="submit"
-              name="action"
-              onClick={() => this.props.history.push('/openItems')}
-            >
-              Back to Open Items
-            </button>
+        <div className="container mt-2">
+          <div className="row">
+            <table>
+              <thead>
+                <tr>
+                  <th>Need</th>
+                  <th>Details</th>
+                  <th className="center">More Info</th>
+                </tr>
+              </thead>
+              <tbody>
+                {myNeeds.map(myNeed => (
+                  <MyNeedItem key={myNeed.Id} myNeed={myNeed} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="row mt-3">
+            <div className="col s12 buttons">
+              <button
+                className="btn waves-effect waves-light ichn-blue"
+                type="submit"
+                name="action"
+                onClick={() => this.props.history.push('/openItems')}
+              >
+                Back to Open Items
+              </button>
+            </div>
           </div>
         </div>
       </div>

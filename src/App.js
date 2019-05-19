@@ -52,7 +52,7 @@ class App extends Component {
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
-            <div className="container">
+            <div>
               <Route exact path="/register" component={User_Info} />
               <Route exact path="/setPassword" component={Set_Password} />
               <Route exact path="/forgotPassword" component={Forgot_Password} />
