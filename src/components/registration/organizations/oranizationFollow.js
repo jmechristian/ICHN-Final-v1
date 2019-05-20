@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import { followOrg } from '../../../actions/authActions';
 
 export class oranizationFollow extends Component {
   state = {
@@ -8,9 +8,7 @@ export class oranizationFollow extends Component {
   };
 
   addOrgHandler(id) {
-    axios.post(
-      `http://ichnserver.gear.host/User/FollowOrganization?organizationId=${id}`
-    );
+    this.props.followOrg(id);
 
     this.setState({ btnDisabled: true });
   }
@@ -50,4 +48,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(oranizationFollow);
+export default connect(
+  mapStateToProps,
+  { followOrg }
+)(oranizationFollow);

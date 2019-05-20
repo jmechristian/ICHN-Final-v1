@@ -6,7 +6,8 @@ import {
   SET_CURRENT_USER,
   GET_ERRORS,
   SET_FOLLOWING,
-  REMOVE_ORG
+  REMOVE_ORG,
+  FOLLOW_ORG
 } from './types';
 
 //Register User
@@ -72,6 +73,20 @@ export const unFollow = id => dispatch => {
     .then(res =>
       dispatch({
         type: REMOVE_ORG,
+        payload: res.data
+      })
+    );
+};
+
+//Follow an organization for a user
+export const followOrg = id => dispatch => {
+  axios
+    .post(
+      `http://ichnserver.gear.host/User/FollowOrganization?organizationId=${id}`
+    )
+    .then(res =>
+      dispatch({
+        type: FOLLOW_ORG,
         payload: res.data
       })
     );
