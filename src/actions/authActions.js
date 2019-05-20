@@ -81,9 +81,7 @@ export const unFollow = id => dispatch => {
 //Follow an organization for a user
 export const followOrg = id => dispatch => {
   axios
-    .post(
-      `http://ichnserver.gear.host/User/FollowOrganization?organizationId=${id}`
-    )
+    .post(`${Route}/User/FollowOrganization?organizationId=${id}`)
     .then(res =>
       dispatch({
         type: FOLLOW_ORG,
