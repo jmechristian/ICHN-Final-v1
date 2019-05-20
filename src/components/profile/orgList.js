@@ -19,13 +19,12 @@ export class orgList extends Component {
           <li className="collection-item" key={org.Id}>
             <div>
               {org.Name}
-              <a
-                href="#!"
+              <span
                 className="secondary-content"
                 onClick={this.removeOrgHandler.bind(this, org.Id)}
               >
                 <i className="material-icons">remove_circle</i>
-              </a>
+              </span>
             </div>
           </li>
         ))}
