@@ -8,7 +8,8 @@ import logo from '../../img/SVG/ich-horizontal.svg';
 export class Landing extends Component {
   state = {
     Email: '',
-    Password: ''
+    Password: '',
+    passwordIsMasked: true
   };
 
   componentDidMount() {
@@ -36,6 +37,12 @@ export class Landing extends Component {
     };
 
     this.props.loginUser(user);
+  };
+
+  togglePasswordMask = () => {
+    this.setState(prevState => ({
+      passwordIsMasked: !prevState.passwordIsMasked
+    }));
   };
 
   render() {
@@ -69,12 +76,18 @@ export class Landing extends Component {
                 <i className="material-icons prefix">vpn_key</i>
                 <input
                   name="Password"
-                  type="password"
+                  type={this.state.passwordIsMasked ? 'Password' : 'text'}
                   placeholder="Password"
                   className="validate"
                   value={this.state.Password}
                   onChange={this.onChange}
                 />
+                <i
+                  className="material-icons post"
+                  onClick={this.togglePasswordMask}
+                >
+                  remove_red_eye
+                </i>
                 <span
                   className="helper-text"
                   data-error="Please Enter Your Password"
@@ -88,11 +101,7 @@ export class Landing extends Component {
               </div>
 
               <div className="col s12 form-submit">
-                <button
-                  className="btn waves-effect waves-light ichn-blue"
-                  type="submit"
-                  name="action"
-                >
+                <button className="btn ichn-blue" type="submit" name="action">
                   Login
                 </button>
               </div>

@@ -29,6 +29,13 @@ label {
   color: #9ebacb !important;
 }
 
+.post {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  color: #9ebacb !important;
+}
+
 .page-title {
   color: white;
   text-transform: uppercase;
@@ -113,13 +120,13 @@ label {
 /* COLOR */
 
 .ichn-blue {
-  background-color: #516cb2;
+  background-color: #516cb2 !important;
 }
 
 .ichn-grey {
-  background-color: #9ebacb;
+  background-color: #9ebacb !important;
 }
 
 .ichn-green {
-  background-color: #b2d0b1;
+  background-color: #b2d0b1 !important;
 }
